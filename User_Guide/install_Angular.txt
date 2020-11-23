@@ -1,0 +1,97 @@
+npm install -g typescript
+npm install typescript --save-dev
+npx tsc
+
+===========
+npm install -g @angular/cli
+
+or
+npm install -g @angular/cli@latest
+
+ng update @angular/cli @angular/core
+
+// Tao App moi trong Folder
+ng new my-app
+
+// run ng on Visual studio Code :
+
+Open PowerShell as Adminstrator.
+Run:
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+
+cd my-app
+// khoi dong Angular
+ng serve --open
+
+// tao Component
+ng g c Name
+ng g c Name --skipTests
+
+// tao Service
+ng g service Name --module=app
+
+// install bootstrap, jquery
+npm install -g yarn
+yarn set version berry
+
+yarn add bootstrap jquery
+
+0r
+npm install bootstrap jquery --save
+npm install bootstrap ngx-bootstrap --save
+
+enter: angular.json :{
+	"styles": [
+              "src/styles.css",
+              "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+}
+// run server :
+ng serve --open
+
+// FormsModule
+import { FormsModule } from '@angular/forms';
+imports: [
+    BrowserModule,
+    FormsModule
+  ],
+
+//Directive : ngStyle  and  ngClass
+box-shadow:2px 2px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+// install Http
+npm install @angular/http@latest
+
+// API_openweathermap.org : https://home.openweathermap.org/api_keys
+
+User : DinhLiem
+email : laviariver@gmail.com
+Pass : Phamdinhliem
+API_ name default : 868baa2ccd23703d5e4bc2752aa7b595
+
+url =
+http://api.openweathermap.org/data/2.5/weather?appid=868baa2ccd23703d5e4bc2752aa7b595&units=metric&q=Saigon
+
+// ngModel :  [(ngModel)] = "value"
+// ngClass :  [ngClass]="Class"
+// ngStyle :  [ngStyle]="name.length % 2 === 0 ? evenStyle : oddStyle "
+// [hidden]="booleam"
+// [class]="booleam ? 'circle' : 'square'"
+// [style.color]="value"
+// ngFor : *ngFor="let item of Array"
+// ngIf  : *ngIf="booleam"
+
+// pagination
+npm install jw-angular-pagination@1.0.1
+npm install ngx-pagination --save
+
+// Server_NodeJs
+Folder Server : 
+npm init -y
+npm install express ejs
+npm install body-parser --save
