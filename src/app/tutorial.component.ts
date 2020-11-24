@@ -31,8 +31,12 @@ import { Component, OnInit } from '@angular/core';
             <p *ngSwitchCase="'green'" >This line Color is green</p>
             <p *ngSwitchDefault>Invalid Color </p>
          </div>
+
+         <p [ngClass]="{ classOne:C1 , classTwo:C2 }">Attribute . This ngClass apply style </p>
+         <button (click)="C1=!C1; C2=!C2" >ChangeClass</button>
     `,
     styles: [`h5 {color:red} h4 {color:blue} .colorLession{ color: red}
+            .classOne{color: yellow; } .classTwo{background-color:black;}
     `]
 })
 
@@ -44,6 +48,7 @@ export class TutorialComponent implements OnInit {
     public fname: String ; lname : String ;
     public showLineIf : boolean ;
     public color = "";
+    public C1 = true; C2 = true;
     constructor() { }
     ngOnInit() { }
     RedColor(){
