@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
         <p>Output : {{ output.value }}</p>
 
         <!-- Lession 8 -->
-        <h4 [class.colorLession]="applyClass" >Lession 8 : Binding Class to element</h4>
+        <h4 [class.colorLession]="applyClass"  >Lession 8 : Binding Class to element</h4>
+        <h5 [style.color]="applyClass? 'blue' : 'orange'" >Style Color = If applyClass? = {{ applyClass }} BlueColor : OrangeColor</h5>
         <button (click)="RedColor();" applyClaas=true >RedColor</button><span>&nbsp;&nbsp;</span>
         <button (click)="BlueColor();" applyClaas=false >BlueColor</button>
     `,
