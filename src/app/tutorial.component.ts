@@ -3,11 +3,30 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
     selector: 'app-tutorial',
     template: `<h5>This is {{ title }}_Component</h5>
-        <!-- Lession 13 , Lession 14 -->
-        <p>Tutorial_Input : {{ name }}</p>
-
-        <button [disabled]="voted" (click)="vote(true)" >Agree</button>
-        <button [disabled]="voted" (click)="vote(false)" >Disgree</button>
+        <!-- Lession 15 , Lession 16 -->
+       <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)" >
+          <div class="form-group" >
+            <label for="name">Name</label>
+            <input #name name="name" ngModel type="text" class="form-control" />
+          </div>  
+          <div class="form-group" >
+            <label for="email">Email</label>
+            <input #email name="email" ngModel type="text" class="form-control" />
+          </div>  
+          <div class="form-group" >
+            <label for="street">Street</label>
+            <input #street name="street" ngModel type="text" class="form-control" />
+          </div>  
+          <div class="form-group" >
+            <label for="city">City</label>
+            <input #city name="city" ngModel type="text" class="form-control" />
+          </div> 
+          <div class="form-group" >
+            <label for="postalcode">Postal Code</label>
+            <input #postalcode name="postalcode" ngModel type="text" class="form-control" />
+          </div>  
+          <button type="submit" class="btn btn-primary" >Submit</button> 
+       </form>
         <p>Result : {{ result }}</p>
     `,
     styles: [`h5 {color:red} h4 {color:blue} .colorLession{ color: red}
@@ -17,18 +36,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class TutorialComponent implements OnInit {
     public title = "Tutorial";
-    @Input() name: String;
-    public voted : boolean = false;
-    public result : string;
+    public result : any;
     @Output() onVote = new EventEmitter<boolean>();
     constructor() { }
     ngOnInit() { }
-    vote(vote:boolean){
-        this.voted = true;
-        this.result = vote ? 'agree' : 'disgree' ;
-        this.onVote.emit(vote);
-    }
-    setName(name:string){
-        this.name = name ;
+    
+    onSubmit(formValue: any){
+        this.result = formValue.name ;
+        console.log( this.result);
+
     }
 }

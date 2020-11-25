@@ -339,12 +339,8 @@
   </div>
 
   <!-- Resources -->
-  <label for="txtname">AppComponent =>[ {{ txtname.value }} ] to TutorialCompnent</label>
-  <input type="text" #txtname (keyup)="0" />
-  <p>Result : Agree = {{ agree }} || Disgree = {{ disgree }}</p>
-  <button (click)="ChangeName(txtname.value)" >ChangeName</button>
   <!-- <app-tutorial [name]="txtname.value" (onVote)="ParentVote($event)"></app-tutorial> -->
-  <app-tutorial *ngFor="let Mr of names" [name]="Mr" (onVote)="ParentVote($event)"></app-tutorial>
+  <app-tutorial ></app-tutorial>
 
   <!-- Footer -->
   <footer>
