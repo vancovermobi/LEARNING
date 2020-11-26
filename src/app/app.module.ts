@@ -7,6 +7,7 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+
 import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial.component';
 import { EmployeeService } from './Services/employee.service';

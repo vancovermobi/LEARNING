@@ -14,7 +14,10 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let empl of EmployeesUrlList" >
+        <tr *ngFor="let empl of EmployeesUrlList 
+        | paginate: { 
+            itemsPerPage: intemPerPage, currentPage: currentPage 
+        }" >
             <td>{{ empl.name }}</td>
             <td>{{ empl.age }}</td>
             <td>{{ empl.status }}</td>

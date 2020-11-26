@@ -12,15 +12,16 @@ export class EmployeeListComponent implements OnInit {
     public EmployeesList : any [];
     public EmployeesUrlList : any [];
     public currentPage: number = 1 ;
+    public intemPerPage: number = 5 ;
 
     constructor(public employeeService: EmployeeService ,
-                //public activatedRoute: ActivatedRoute,
-                public router:Router , 
+                //public activatedRouter: ActivatedRoute,
+                // public router:Router , 
                 ) { }
     ngOnInit() { 
        this.EmployeesList = this.employeeService.Getlist();
-       this.LoadData();
-       //this.Pages();
+        this.LoadData();
+       
     }
     // Load List Data tu Url
     LoadData(){
@@ -30,10 +31,5 @@ export class EmployeeListComponent implements OnInit {
         (error) => {console.log('System error API ' + error);}
         );
     }
-    // lay phan trang
-    // Pages(){
-    //     this.activatedRouter.queryParams.subscribe(params => {
-    //         this.currentPage = params['pageNumber'] || 1 ;
-    //     });
-    // }
+    
 }
