@@ -338,12 +338,25 @@
 
   </div>
 
-  <!-- Resources -->
+  <!-- Resources *ngIf="isloggedin"-->
   <!-- <app-tutorial [name]="txtname.value" (onVote)="ParentVote($event)"></app-tutorial> -->
   
   <!-- <app-tutorial ></app-tutorial> -->
-  <app-EmployeeList></app-EmployeeList>
-
+  <!-- <app-EmployeeList></app-EmployeeList> -->
+<h4>Welcom to Routing</h4>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <div>
+      <ul class="nav nav-pills" >
+        <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active" >Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/employees" routerLinkActive="active" >Employee List</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/login" routerLinkActive="active" >Login</a></li>
+        <li class="nav-item" ><a class="nav-link" (click)="LogOut()" routerLinkActive="active" routerLink="/home" >LogOut</a></li>
+    </ul>
+  </div>
+</nav>
+  <router-outlet>
+    
+  </router-outlet>
   <!-- Footer -->
   <footer>
       Love Angular?&nbsp;

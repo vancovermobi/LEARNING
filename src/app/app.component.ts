@@ -11,6 +11,9 @@ export class AppComponent {
  
   @ViewChild(TutorialComponent)
     private tutorialComponent: TutorialComponent;
- 
+
+    LogOut(){
+      
+    }
 }
 

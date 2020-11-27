@@ -12,14 +12,20 @@ import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial.component';
 import { EmployeeService } from './Services/employee.service';
 import { EmployeeListComponent } from './Employees/employee.component';
+import { HomeComponent } from './home.component';
+import { LoginComponent} from './Router/login.component';
+import { NotFoundPageComponent } from './Router/notfoundpage.component';
+import { appRoutes } from './Router/routing.routes';
 
  import { from } from 'rxjs';
 @NgModule({
   declarations: [
-    AppComponent, TutorialComponent, EmployeeListComponent,
+    AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
+    NotFoundPageComponent , 
   ],
   imports: [
-    BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule,
+    BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes,
+    
   ],
   providers: [ EmployeeService,],
   bootstrap: [AppComponent]
