@@ -13,6 +13,11 @@ export class EmployeeService {
             map((res : any) => res)
         );
     }
+    GetIdUrl(id:number):Observable<any[]>{
+        return this._http.get(this.apiUrl + id).pipe(
+            map((res : any) => res)
+        );
+    }
     Getlist(): any[] {
         let employees:any[] = [
             {Id: 1, Name: "Đỗ Trần Điền"},

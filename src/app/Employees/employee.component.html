@@ -22,8 +22,12 @@
             <td>{{ empl.age }}</td>
             <td>{{ empl.status }}</td>
             <td>{{ empl.createdAt | date }}</td>
-            <td>Details</td>
-            <td>Edit</td>
+            <td>
+                <a [routerLink]="['/employee-detail', empl.id]" >Details</a>
+            </td>
+            <td>
+                <a [routerLink]="['/employee-edit', empl.id]" >Edit</a>
+            </td> 
             <td>Delete</td>
          </tr>
     </tbody>

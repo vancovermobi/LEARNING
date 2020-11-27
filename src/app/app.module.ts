@@ -16,12 +16,18 @@ import { HomeComponent } from './home.component';
 import { LoginComponent} from './Router/login.component';
 import { NotFoundPageComponent } from './Router/notfoundpage.component';
 import { appRoutes } from './Router/routing.routes';
+import { AddEmployeeComponent } from './Employees/employee-add.component';
+import { EmployeeDetailComponent } from './Employees/employee-detail.component';
+import { EditEmployeeComponent } from './Employees/employee-edit.component';
+import { OverviewComponent } from './Employees/employee-overview.component';
+import { ProjectComponent } from './Employees/employee-project.component';
 
  import { from } from 'rxjs';
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
-    NotFoundPageComponent , 
+    NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
+    OverviewComponent, ProjectComponent, 
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes,
