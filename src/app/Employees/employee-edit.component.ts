@@ -26,11 +26,11 @@ import { EmployeeService } from '../Services/employee.service';
                 </td>
             </tr>
             <tr>
-                <td>Status : </td>
-                <td>
+                <td>Status : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;
                     <input type="radio" #true name="status" value="true" ngModel  
                     [(ngModel)]="!selected" class="form-check-input" />
-                    <label for="true" class="radio-inline" >&nbsp; True &nbsp;</label>
+                    <label for="true" class="radio-inline" > True &nbsp;</label>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                     <input type="radio" #false name="status" ngModel value="false" 
                     [(ngModel)]="selected" class="form-check-input" >
@@ -38,15 +38,15 @@ import { EmployeeService } from '../Services/employee.service';
                 </td>
             </tr>
         </table>
-        <a class="btn btn-primary btn-sm" [routerLink]="['/employees']" (click)="SaveChange()" type="button" >Save_Change</a>
+        <button class="btn btn-primary btn-sm" type="submit" >Save_Change</button>
         <span>&nbsp;</span>
-        <a class="btn btn-default btn-sm" [routerLink]="['/employees']" type="button" >Cancel</a>
+        <button class="btn btn-default btn-sm" [routerLink]="['/employees']" type="button" >Cancel</button>
     </form>    
     `
 })
 
 export class EditEmployeeComponent implements OnInit , OnDestroy {
-    public selected : boolean;
+    public selected : any;
     public _id: number;
     public employee: any;
     public subcription: Subscription ;
@@ -58,16 +58,22 @@ export class EditEmployeeComponent implements OnInit , OnDestroy {
     ngOnInit() {
         this.subcription = this.activeRouter.params.subscribe(params => {
             this._id = params['id'] ;
-            console.log( this._id);
+            //console.log( this._id);
         });
         this.employeeService.GetIdUrl(this._id).subscribe((data) =>{
             this.employee = data ;
+            this.selected = this.employee.status === 'true' ? 'true' : 'false';
         });
      }
     ngOnDestroy(){
         this.subcription.unsubscribe();
     }
-    SaveChange(){
-
+    SaveChange(datachange){
+        //console.log(datachange);
+        this.employeeService.PutUpdate(this._id,datachange).subscribe(response => {
+            //console.log(response);
+            this.router.navigate(['/employees']);
+        });     
     }
+    
 }

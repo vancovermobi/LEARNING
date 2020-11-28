@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../Services/employee.service';
 import { Route } from '@angular/compiler/src/core';
@@ -8,18 +8,19 @@ import { Route } from '@angular/compiler/src/core';
     templateUrl: 'employee.component.html'
 })
 
-export class EmployeeListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit, DoCheck {
     public EmployeesList : any [];
     public EmployeesUrlList : any [];
-    public currentPage: number = 1 ;
+    public p: number = 1 ;
     public intemPerPage: number = 5 ;
+    public keyword : string ;
 
     constructor(public employeeService: EmployeeService ,
                 //public activatedRouter: ActivatedRoute,
                 // public router:Router , 
                 ) { }
     ngOnInit() { 
-       this.EmployeesList = this.employeeService.Getlist();
+        this.EmployeesList = this.employeeService.Getlist();
         this.LoadData();
        
     }
@@ -27,9 +28,24 @@ export class EmployeeListComponent implements OnInit {
     LoadData(){
         this.employeeService.GetListUrl().subscribe((response: any) => {
             this.EmployeesUrlList = response ;
+           
         },
         (error) => {console.log('System error API ' + error);}
         );
+    }
+   
+    Search(){
+        this.employeeService.Search(this.keyword).subscribe(response =>{
+            this.EmployeesUrlList = response ;
+        });
+    }
+    Delete(id){
+        this.employeeService.Delete(id).subscribe(response =>{
+                this.LoadData();
+    });
+    }
+    ngDoCheck(){
+        
     }
     
 }

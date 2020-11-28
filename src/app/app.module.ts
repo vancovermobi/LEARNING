@@ -21,6 +21,8 @@ import { EmployeeDetailComponent } from './Employees/employee-detail.component';
 import { EditEmployeeComponent } from './Employees/employee-edit.component';
 import { OverviewComponent } from './Employees/employee-overview.component';
 import { ProjectComponent } from './Employees/employee-project.component';
+import { LoginServices } from './Services/login.service';
+import { CheckLoginGuard } from './guards/check-login.guard';
 
  import { from } from 'rxjs';
 @NgModule({
@@ -33,7 +35,7 @@ import { ProjectComponent } from './Employees/employee-project.component';
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes,
     
   ],
-  providers: [ EmployeeService,],
+  providers: [ EmployeeService,LoginServices, CheckLoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

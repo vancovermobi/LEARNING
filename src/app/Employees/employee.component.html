@@ -1,6 +1,15 @@
 <u>
     <li *ngFor="let employee of EmployeesList" >{{ employee.Name }}</li>
 </u>
+<div class="row" style="margin-left:5px;" >
+    <button type="button" class="btn btn-info" style="font-weight: bold; font-size: 20px; font-style: italic; color: red;"
+    [routerLink]="['/employee-add']" >Add new</button>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
+    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <input type="text" [(ngModel)]="keyword" name="keyword" >
+    <span>&nbsp;&nbsp;&nbsp; </span>
+    <button (click)="Search();" class="btn btn-warning" >Search</button>
+  </div>
 <table class="table" >
     <thead>
         <tr>
@@ -16,8 +25,8 @@
     <tbody>
         <tr *ngFor="let empl of EmployeesUrlList 
         | paginate: { 
-            itemsPerPage: intemPerPage, currentPage: currentPage 
-        }" >
+            itemsPerPage: intemPerPage, currentPage: p
+        } ; let i = index " >
             <td>{{ empl.name }}</td>
             <td>{{ empl.age }}</td>
             <td>{{ empl.status }}</td>
@@ -28,13 +37,15 @@
             <td>
                 <a [routerLink]="['/employee-edit', empl.id]" >Edit</a>
             </td> 
-            <td>Delete</td>
+            <td>
+               <a (click)="Delete(empl.id);" type="button" class="btn btn-danger btn-sm">Delete</a>
+            </td>
          </tr>
     </tbody>
 </table>
-<p>Trang : {{ currentPage }}</p>
+<p>Trang : {{ p }} </p>
 <div class="card text-center m-3">
     <div class="card-footer pb-0 pt-3">
-      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event "></pagination-controls>
     </div>
 </div> 

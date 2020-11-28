@@ -1,4 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, DoCheck } from '@angular/core';
+import { LoginServices } from './Services/login.service';
 import { TutorialComponent } from './tutorial.component';
 
 @Component({
@@ -6,14 +7,22 @@ import { TutorialComponent } from './tutorial.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, DoCheck {
   title = 'LEARNING';
- 
+  public isLoggedIn : boolean ;
   @ViewChild(TutorialComponent)
     private tutorialComponent: TutorialComponent;
-
-    LogOut(){
-      
-    }
+  
+  constructor(private loginService: LoginServices){}
+  ngOnInit(){
+    this.isLoggedIn = this.loginService.IsLogged();
+  }
+  ngDoCheck(){
+    this.isLoggedIn = this.loginService.IsLogged();
+    console.log('Check isLogin : ' + this.isLoggedIn);
+  }
+  LogOut(){
+     this.loginService.SetLogin(false);
+  }
 }
 

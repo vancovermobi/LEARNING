@@ -44,7 +44,7 @@ export class EmployeeDetailComponent implements OnInit , OnDestroy {
     ngOnInit() {
         this.subcription = this.activeRouter.params.subscribe(params => {
             this._id = params['id'] ;
-            console.log( this._id);
+            //console.log( this._id);
         });
         this.employeeService.GetIdUrl(this._id).subscribe((data) =>{
             this.employee = data ;

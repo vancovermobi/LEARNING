@@ -18,6 +18,27 @@ export class EmployeeService {
             map((res : any) => res)
         );
     }
+    PutUpdate(id:number, data:any):Observable<any[]>{
+        return this._http.put(this.apiUrl + id , data).pipe(
+            map((res : any) => res)
+        );
+    }
+    PostAdd(data:any):Observable<any>{
+        return this._http.post(this.apiUrl, data).pipe(
+            map((res : any) => res)
+        );
+    }
+    Delete(id:number):Observable<any>{
+        return this._http.delete(this.apiUrl + id).pipe(
+            map((res : any) => res)
+        );
+    }
+    Search(keyword:string):Observable<any[]>{
+        return this._http.get(this.apiUrl + "?search=" + keyword).pipe(
+            map((res : any) => res)
+        );
+    }
+  
     Getlist(): any[] {
         let employees:any[] = [
             {Id: 1, Name: "Đỗ Trần Điền"},
