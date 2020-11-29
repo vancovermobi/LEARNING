@@ -24,7 +24,7 @@
             {{ eachMovie.name }}  -  {{ eachMovie.releaseYear }}
         </li>
     </ol>
-    <div *ngIf="selectedMovie" class="details" >
+    <!-- <div *ngIf="selectedMovie" class="details" >
         <h3>You selected: {{ selectedMovie.name }} . Details: </h3>
         <table style="width: 100%;" >
             <tr>
@@ -36,5 +36,6 @@
                 <td><input [(ngModel)]="selectedMovie.releaseYear" placeholder="release year" ></td>
             </tr>
         </table>
-    </div>
+    </div> -->
+    <app-movie-details [movie]="selectedMovie" ></app-movie-details>
 </div>
