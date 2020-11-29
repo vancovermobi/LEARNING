@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
 import { Movie } from './Models/movie';
 import { fakeMovies } from './movies/fake-movies';
 
@@ -16,7 +17,8 @@ export class MovieService {
 
   // su dung Observable async
   getMoviesObservable(): Observable<Movie[]> {
+    this.messageService.add(`${ new Date().toLocaleString()}. Get movie list`);
     return of (fakeMovies) ;
   }
-  constructor() { }
+  constructor(public messageService: MessageService) { }
 }

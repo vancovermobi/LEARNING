@@ -40,12 +40,14 @@ import { Movie } from './Models/movie';
 import { CommonModule } from '@angular/common';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieService } from './movie.service';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageService } from './message.service';
 
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
     NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
-    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, 
+    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, MessagesComponent, 
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes, BrowserAnimationsModule,
@@ -53,7 +55,8 @@ import { MovieService } from './movie.service';
     MatTableModule, MatRadioModule, MatPaginatorModule,CommonModule, 
     
   ],
-  providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, MovieService,
+  providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, MovieService,MessageService,
+    
   ],
   bootstrap: [AppComponent]
 })
