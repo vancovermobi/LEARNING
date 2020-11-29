@@ -1,11 +1,16 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck , AfterViewInit , ViewChild} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../Services/employee.service';
 import { Route } from '@angular/compiler/src/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
     selector: 'app-EmployeeList',
-    templateUrl: 'employee.component.html'
+    templateUrl: 'employee.component.html',
+    styles:[`
+        table { width: 100%; }
+    `]
 })
 
 export class EmployeeListComponent implements OnInit, DoCheck {

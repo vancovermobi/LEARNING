@@ -6,7 +6,14 @@ import { RouterModule } from '@angular/router';
 import { JwPaginationComponent } from 'jw-angular-pagination';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { MatSliderModule } from '@angular/material/slider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
 import { TutorialComponent } from './tutorial.component';
@@ -24,15 +31,21 @@ import { ProjectComponent } from './Employees/employee-project.component';
 import { LoginServices } from './Services/login.service';
 import { CheckLoginGuard } from './guards/check-login.guard';
 
+
  import { from } from 'rxjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialComponent } from './material/material.component';
+
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
     NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
-    OverviewComponent, ProjectComponent, 
+    OverviewComponent, ProjectComponent, MaterialComponent, 
   ],
   imports: [
-    BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes,
+    BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes, BrowserAnimationsModule,
+    MatSliderModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule,
+    MatTableModule, MatRadioModule, MatPaginatorModule, 
     
   ],
   providers: [ EmployeeService,LoginServices, CheckLoginGuard],
