@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
 import { Movie } from '../Models/movie';
+import { MovieService } from '../movie.service';
 import { fakeMovies } from './fake-movies';
 @Component({
   selector: 'app-movies',
@@ -13,11 +14,19 @@ export class MoviesComponent implements OnInit {
     name: 'Start Wars',
     releaseYear: 1997
   };
-  movies = fakeMovies ;
+  //movies = fakeMovies ;
+  movies : Movie[] ;
 
-  constructor() {}
+  constructor( private movieService: MovieService) {}
 
-  ngOnInit(): void {}
+  getMoviesFromServices():void {
+    this.movies = this.movieService.getMovies();
+  }
+
+  ngOnInit(): void {
+    this.getMoviesFromServices();
+  }
+
   // Action when select a Movie in List item
   selectedMovie: Movie;
   onSelect(movieClick:Movie): void{

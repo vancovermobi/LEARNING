@@ -39,6 +39,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { Movie } from './Models/movie';
 import { CommonModule } from '@angular/common';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieService } from './movie.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     MatTableModule, MatRadioModule, MatPaginatorModule,CommonModule, 
     
   ],
-  providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, ],
+  providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, MovieService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
