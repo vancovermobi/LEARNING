@@ -35,20 +35,24 @@ import { CheckLoginGuard } from './guards/check-login.guard';
  import { from } from 'rxjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialComponent } from './material/material.component';
+import { MoviesComponent } from './movies/movies.component';
+import { Movie } from './Models/movie';
+import { CommonModule } from '@angular/common';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
     NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
-    OverviewComponent, ProjectComponent, MaterialComponent, 
+    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, 
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes, BrowserAnimationsModule,
     MatSliderModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule,
-    MatTableModule, MatRadioModule, MatPaginatorModule, 
+    MatTableModule, MatRadioModule, MatPaginatorModule,CommonModule, 
     
   ],
-  providers: [ EmployeeService,LoginServices, CheckLoginGuard],
+  providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
