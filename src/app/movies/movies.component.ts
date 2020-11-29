@@ -22,9 +22,14 @@ export class MoviesComponent implements OnInit {
   getMoviesFromServices():void {
     this.movies = this.movieService.getMovies();
   }
-
+  getMoviesFromServicesObservable():void {
+    this.movieService.getMoviesObservable().subscribe(updateMovie => {
+        this.movies = updateMovie ;
+    });
+  }
   ngOnInit(): void {
-    this.getMoviesFromServices();
+    //this.getMoviesFromServices();
+    this.getMoviesFromServicesObservable();
   }
 
   // Action when select a Movie in List item

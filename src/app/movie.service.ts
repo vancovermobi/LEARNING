@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Movie } from './Models/movie';
 import { fakeMovies } from './movies/fake-movies';
 
@@ -11,6 +12,11 @@ export class MovieService {
   // - mock data source
   getMovies():Movie[] {
     return fakeMovies ;
+  }
+
+  // su dung Observable async
+  getMoviesObservable(): Observable<Movie[]> {
+    return of (fakeMovies) ;
   }
   constructor() { }
 }
