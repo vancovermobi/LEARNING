@@ -20,5 +20,8 @@ export class MovieService {
     this.messageService.add(`${ new Date().toLocaleString()}. Get movie list`);
     return of (fakeMovies) ;
   }
+  getMovieFromId(id:number):Observable<Movie>{
+    return of(fakeMovies.find(movie => movie.id === id ));
+  }
   constructor(public messageService: MessageService) { }
 }

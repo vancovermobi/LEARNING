@@ -42,17 +42,19 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieService } from './movie.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
     NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
-    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, MessagesComponent, 
+    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, MessagesComponent, DashboardComponent, 
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes, BrowserAnimationsModule,
     MatSliderModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatIconModule,
-    MatTableModule, MatRadioModule, MatPaginatorModule,CommonModule, 
+    MatTableModule, MatRadioModule, MatPaginatorModule,CommonModule, AppRoutingModule, 
     
   ],
   providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, MovieService,MessageService,

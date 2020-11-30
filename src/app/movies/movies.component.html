@@ -14,14 +14,15 @@
         <input [(ngModel)]="movie.releaseYear" placeholder="Enter release year" >
     </label>
 </div>
-
+<!-- [class.selected]="eachMovie === selectedMovie"
+            (click)="onSelect(eachMovie)" -->
 <h3>My favorite movies</h3>
 <div class="parent" >
     <ol class="movies" >
-        <li class="movieListItem" *ngFor="let eachMovie of movies"
-            [class.selected]="eachMovie === selectedMovie"
-            (click)="onSelect(eachMovie)" >
-            {{ eachMovie.name }}  -  {{ eachMovie.releaseYear }}
+        <li class="movieListItem" *ngFor="let eachMovie of movies"  >
+            <a routerLink="/detail/{{ eachMovie.id }}" style="text-decoration: none;" > 
+                {{ eachMovie.name }}  -  {{ eachMovie.releaseYear }}
+            </a>   
         </li>
     </ol>
     <!-- <div *ngIf="selectedMovie" class="details" >
@@ -37,6 +38,10 @@
             </tr>
         </table>
     </div> -->
-    <app-movie-details [movie]="selectedMovie" ></app-movie-details>
-    <app-messages></app-messages>
+    <!-- <app-movie-details [movie]="selectedMovie" ></app-movie-details> -->
+    <!-- <app-messages></app-messages> -->
+    <!-- <a class="nav-link" routerLinkActive="active" routerLink="/movies" >Movies Detail</a> -->
+    <a class="nav-link" routerLinkActive="active" routerLink="/message" >Message_Times</a>
+    <a class="nav-link" routerLinkActive="active" routerLink="/dashboard" >Dashboard</a>
+    
 </div>
