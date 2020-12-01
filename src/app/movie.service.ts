@@ -3,6 +3,8 @@ import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { Movie } from './Models/movie';
 import { fakeMovies } from './movies/fake-movies';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ export class MovieService {
   // Services can get data from :
   // - Local storage
   // - mock data source
+
+  public movieUrl = "http://localhost:3000/movies";
   getMovies():Movie[] {
     return fakeMovies ;
   }
@@ -23,5 +27,14 @@ export class MovieService {
   getMovieFromId(id:number):Observable<Movie>{
     return of(fakeMovies.find(movie => movie.id === id ));
   }
-  constructor(public messageService: MessageService) { }
+  getMovieUrl():Observable<Movie[]>{
+    return this.http.get<Movie[]>(this.movieUrl).pipe(
+      tap(receivedMovies => JSON.stringify(receivedMovies)),
+      catchError(error => of([]))
+    );
+  }
+  // tap(receivedMovies => console.log(`receivedMovies = ${JSON.stringify(receivedMovies)}`)),
+
+  constructor(public messageService: MessageService,
+    public http:HttpClient) { }
 }

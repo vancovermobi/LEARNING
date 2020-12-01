@@ -27,9 +27,15 @@ export class MoviesComponent implements OnInit {
         this.movies = updateMovie ;
     });
   }
+  getMoviesFromHttpUrl(): void{
+    this.movieService.getMovieUrl().subscribe(response => {
+      this.movies = response ;
+    });
+  }
   ngOnInit(): void {
     //this.getMoviesFromServices();
-    this.getMoviesFromServicesObservable();
+    //this.getMoviesFromServicesObservable();
+    this.getMoviesFromHttpUrl();
   }
 
   // Action when select a Movie in List item
