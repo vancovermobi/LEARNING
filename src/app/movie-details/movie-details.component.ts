@@ -38,6 +38,9 @@ export class MovieDetailsComponent implements OnInit, OnDestroy {
       console.log( this.movie );
     });
   }
+  Save(): void{
+    this.movieService.UpdateMovie(this.movie).subscribe(() => this.goBack());
+  }
   goBack():void {
     this.location.back();
   }

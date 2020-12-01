@@ -25,7 +25,12 @@ export class MovieService {
     return of (fakeMovies) ;
   }
   getMovieFromId(id:number):Observable<Movie>{
-    return of(fakeMovies.find(movie => movie.id === id ));
+    // return of(fakeMovies.find(movie => movie.id === id ));
+    const url = `${this.movieUrl}/${id}`;
+    return this.http.get<Movie>(url).pipe(
+      tap(receivedMovies => JSON.stringify(receivedMovies)),
+      catchError(error => of(new Movie()))
+    );
   }
   getMovieUrl():Observable<Movie[]>{
     return this.http.get<Movie[]>(this.movieUrl).pipe(
@@ -34,6 +39,15 @@ export class MovieService {
     );
   }
   // tap(receivedMovies => console.log(`receivedMovies = ${JSON.stringify(receivedMovies)}`)),
+  UpdateMovie(movie:Movie): Observable<any> {
+    const httpOption = {
+      headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+    };
+    return this.http.put(`${this.movieUrl}/${movie.id}` , movie , httpOption).pipe(
+      tap(updateMovies => JSON.stringify(updateMovies)),
+      catchError(error => of([]))
+    );
+  }
 
   constructor(public messageService: MessageService,
     public http:HttpClient) { }

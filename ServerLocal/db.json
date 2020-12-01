@@ -3,24 +3,24 @@
     {
       "id": 1,
       "name": "The Ghost and the Darkness",
-      "releaseYear": 1996
+      "releaseYear": "1997"
     },
     {
       "releaseYear": "2009",
       "name": "A Christmas Carol",
       "id": 2
     },
-    {      
+    {
       "id": 3,
-      "name": "Star Wars",
-      "releaseYear": "1977"
+      "name": "Star Wars New",
+      "releaseYear": "1978"
     },
     {
       "id": 4,
       "name": "Back to the Future",
       "releaseYear": 1985
     },
-    {      
+    {
       "id": 5,
       "name": "The Matrix",
       "releaseYear": 1999
@@ -109,6 +109,11 @@
       "id": 22,
       "name": "The Amityville Horror",
       "releaseYear": 1979
+    },
+    {
+      "id": 23,
+      "name": "The MyLife",
+      "releaseYear": 2020
     }
   ],
   "comments": [
