@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "The Ghost and the Darkness",
-      "releaseYear": "1997"
+      "releaseYear": "1998"
     },
     {
       "releaseYear": "2009",
@@ -114,6 +114,16 @@
       "id": 23,
       "name": "The MyLife",
       "releaseYear": 2020
+    },
+    {
+      "name": "Liem live code Angular",
+      "releaseYear": 2020,
+      "id": 24
+    },
+    {
+      "name": "Angular 5 tutorial",
+      "releaseYear": 2020,
+      "id": 25
     }
   ],
   "comments": [

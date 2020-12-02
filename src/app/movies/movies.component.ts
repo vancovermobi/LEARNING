@@ -32,16 +32,30 @@ export class MoviesComponent implements OnInit {
       this.movies = response ;
     });
   }
+
   ngOnInit(): void {
     //this.getMoviesFromServices();
     //this.getMoviesFromServicesObservable();
     this.getMoviesFromHttpUrl();
   }
-
+  add(name: string , releaseYear: string):void {
+    name = name.trim();
+    if(Number.isNaN(Number(releaseYear)) || !name || Number(releaseYear) === 0 ){
+        alert('Name must not be blank , Release year must be a number');
+        return ;
+    }
+    const newMovie: Movie = new Movie;
+    newMovie.name = name ;
+    newMovie.releaseYear = Number(releaseYear);
+    this.movieService.addMovie(newMovie).subscribe(response => {
+      this.movies.push(response);
+      console.log(`ResponseMovies = ${JSON.stringify(this.movies)}`);
+    });
+  }
   // Action when select a Movie in List item
   selectedMovie: Movie;
   onSelect(movieClick:Movie): void{
     this.selectedMovie = movieClick ;
-    console.log(`selectedMovie = ${JSON.stringify(this.selectedMovie)}`);
+    //console.log(`selectedMovie = ${JSON.stringify(this.selectedMovie)}`);
   }
 }
