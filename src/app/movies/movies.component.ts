@@ -49,7 +49,7 @@ export class MoviesComponent implements OnInit {
     newMovie.releaseYear = Number(releaseYear);
     this.movieService.addMovie(newMovie).subscribe(response => {
       this.movies.push(response);
-      console.log(`ResponseMovies = ${JSON.stringify(this.movies)}`);
+      //console.log(`ResponseMovies = ${JSON.stringify(this.movies)}`);
     });
   }
   delete(movieId:number):void{

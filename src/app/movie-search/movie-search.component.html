@@ -1,0 +1,11 @@
+<div id="movies" >
+    <h4>Movie search</h4>
+    <input #seachBox (keyup)="search(seachBox.value)" >
+    <ul class="movies" >
+        <li *ngFor="let movie of movie$ | async " class="movieListItem" >
+            <a routerLink="/detail/{{ movie.id }}" >
+                {{ movie.name }} - {{ movie.releaseYear }}
+            </a>
+        </li>
+    </ul>
+</div>

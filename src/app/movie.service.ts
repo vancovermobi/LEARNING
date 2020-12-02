@@ -67,6 +67,16 @@ export class MovieService {
       catchError(error => of(null))
     );
   }
+  /** Search : search the movie on the server */
+  searchMovies(keyword:string): Observable<any>{
+    if(!keyword.trim()){
+      return of([]);
+    }
+    return this.http.get<Movie[]>(`${this.movieUrl}?name_like=${keyword}`).pipe(
+      tap(response => JSON.stringify(response) ),
+      catchError(error => of(null))
+    );
+  }
   constructor(public messageService: MessageService,
     public http:HttpClient) { }
 }

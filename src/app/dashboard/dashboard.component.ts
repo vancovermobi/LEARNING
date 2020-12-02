@@ -13,11 +13,17 @@ export class DashboardComponent implements OnInit {
   constructor(public movieService: MovieService) { }
 
   ngOnInit(): void {
-    this.getMovies();
+    //this.getMovies();
+    this.getMoviesFromHttpUrl();
   }
   getMovies():void{
     this.movieService.getMoviesObservable().subscribe(response => {
       this.movies = response.slice(1,5);
+    });
+  }
+  getMoviesFromHttpUrl(): void{
+    this.movieService.getMovieUrl().subscribe(response => {
+      this.movies = response.slice(1,5) ;
     });
   }
 
