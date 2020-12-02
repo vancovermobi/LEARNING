@@ -46,6 +46,7 @@
             <a routerLink="/detail/{{ eachMovie.id }}" style="text-decoration: none;" > 
                 {{ eachMovie.name }}  -  {{ eachMovie.releaseYear }}
             </a>   
+            <button title="delete_movie" (click)="delete(eachMovie.id)" >x</button>
         </li>
     </ol>
     <!-- <div *ngIf="selectedMovie" class="details" >

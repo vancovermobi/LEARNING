@@ -52,6 +52,11 @@ export class MoviesComponent implements OnInit {
       console.log(`ResponseMovies = ${JSON.stringify(this.movies)}`);
     });
   }
+  delete(movieId:number):void{
+    this.movieService.deleteMovie(movieId).subscribe(response =>{
+      this.movies = this.movies.filter(eachMovie => eachMovie.id !== movieId);
+    });
+  }
   // Action when select a Movie in List item
   selectedMovie: Movie;
   onSelect(movieClick:Movie): void{
