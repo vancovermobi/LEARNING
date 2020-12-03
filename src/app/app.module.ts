@@ -45,12 +45,15 @@ import { MessageService } from './message.service';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { FormNhanVienComponent } from './QuanLyNhanVien/form-nhan-vien/form-nhan-vien.component';
+import { NhanVienClass } from './QuanLyNhanVien/nhan-vien';
 
 @NgModule({
   declarations: [
     AppComponent, TutorialComponent, EmployeeListComponent, HomeComponent, LoginComponent,
     NotFoundPageComponent , AddEmployeeComponent, EmployeeDetailComponent,EditEmployeeComponent,
-    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, MessagesComponent, DashboardComponent, MovieSearchComponent, 
+    OverviewComponent, ProjectComponent, MaterialComponent, MoviesComponent, MovieDetailsComponent, MessagesComponent, DashboardComponent, 
+    MovieSearchComponent, FormNhanVienComponent, 
   ],
   imports: [
     BrowserModule, FormsModule,HttpClientModule , NgxPaginationModule, appRoutes, BrowserAnimationsModule,
@@ -59,6 +62,7 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     
   ],
   providers: [ EmployeeService,LoginServices, CheckLoginGuard, Movie, MovieService,MessageService,
+    NhanVienClass, 
     
   ],
   bootstrap: [AppComponent]
